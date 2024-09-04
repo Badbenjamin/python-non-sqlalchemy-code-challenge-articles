@@ -126,8 +126,10 @@ class Magazine:
                 auth_dict[article.author] = 1
             else:
                 auth_dict[article.author] += 1 
+        print(auth_dict[article.author])
+        # adding whole dictionary to result, need to remove authors with less than 2 contributions
         if auth_dict[article.author] >= 2:
-            result.append(auth_dict[article.author])
+            result.append(auth_dict)
         return result
 
     def __repr__(self):
