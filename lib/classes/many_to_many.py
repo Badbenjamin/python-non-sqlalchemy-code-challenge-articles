@@ -54,8 +54,9 @@ class Author:
     def magazines(self):
         result = set()
         for article in self.articles():
-            result.add(article.magazine)
-        return result
+            if isinstance(article.magazine, Magazine):
+                result.add(article.magazine)
+        return list(result)
 
     def add_article(self, magazine, title):
         return Article(self, magazine, title)
@@ -107,7 +108,7 @@ class Magazine:
         for article in self.articles():
             if isinstance(article.author, Author):
                 result.add(article.author)
-        return result
+        return list(result)
 
     def article_titles(self):
         result = []
@@ -126,11 +127,17 @@ class Magazine:
                 auth_dict[article.author] = 1
             else:
                 auth_dict[article.author] += 1 
-        print(auth_dict[article.author])
-        # adding whole dictionary to result, need to remove authors with less than 2 contributions
-        if auth_dict[article.author] >= 2:
-            result.append(auth_dict)
+        auth_dict_items = auth_dict.items()
+        for auth_item in auth_dict_items:
+            if auth_item[1] >= 2:
+                result.append(auth_item[0])
+            else:
+                return None
         return result
+        # adding whole dictionary to result, need to remove authors with less than 2 contributions
+        # if auth_dict[article.author] >= 2:
+        #     print(auth_dict)
+        # return result
 
     def __repr__(self):
         return f'<Magazine {self.name} {self.category}>'
@@ -151,9 +158,10 @@ art3 = Article(a3, m3, "Subway bad")
 art4 = Article(a2, m2, "Stocks")
 art5 = Article(a1, m3, "City Bad")
 art6 = Article(a2, m1, "Cool stuff")
+art6 = Article(a2, m1, "Cars")
 
 # print(art1.magazine)
 
 a1.add_article(m1, "spahgetti")
 
-print(m1.contributing_authors())
+print(m3.contributing_authors())
