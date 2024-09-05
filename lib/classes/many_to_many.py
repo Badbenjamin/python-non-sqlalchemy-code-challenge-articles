@@ -134,34 +134,31 @@ class Magazine:
             else:
                 return None
         return result
-        # adding whole dictionary to result, need to remove authors with less than 2 contributions
-        # if auth_dict[article.author] >= 2:
-        #     print(auth_dict)
-        # return result
+    
 
     def __repr__(self):
         return f'<Magazine {self.name} {self.category}>'
 
-a1 = Author("Roberto")
-a2 = Author("James Joyce")
-a3 = Author("Mary Gaitskill")
-a4 = Author("Bob")
+# a1 = Author("Roberto")
+# a2 = Author("James Joyce")
+# a3 = Author("Mary Gaitskill")
+# a4 = Author("Bob")
 
-m1 = Magazine("Thrasher", "Skate")
-m2 = Magazine("Economist", "Money")
-m3 = Magazine("NY POST", "Trash")
-m4 = Magazine("HAI", "Stuff")
+# m1 = Magazine("Thrasher", "Skate")
+# m2 = Magazine("Economist", "Money")
+# m3 = Magazine("NY POST", "Trash")
+# m4 = Magazine("HAI", "Stuff")
 
-art1 = Article(a1, m1, "Jabronis")
-art2 = Article(a2, m2, "How to get rich")
-art3 = Article(a3, m3, "Subway bad")
-art4 = Article(a2, m2, "Stocks")
-art5 = Article(a1, m3, "City Bad")
-art6 = Article(a2, m1, "Cool stuff")
-art6 = Article(a2, m1, "Cars")
+# art1 = Article(a1, m1, "Jabronis")
+# art2 = Article(a2, m2, "How to get rich")
+# art3 = Article(a3, m3, "Subway bad")
+# art4 = Article(a2, m2, "Stocks")
+# art5 = Article(a1, m3, "City Bad")
+# art6 = Article(a2, m1, "Cool stuff")
+# art6 = Article(a2, m1, "Cars")
 
-# print(art1.magazine)
+# # print(art1.magazine)
 
-a1.add_article(m1, "spahgetti")
+# a1.add_article(m1, "spahgetti")
 
-print(m3.contributing_authors())
+# print(m3.contributing_authors())
